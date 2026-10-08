@@ -1,0 +1,180 @@
+commit ebe87275a1bb43c950a68b5efba8986d5de6a1c7
+Author: Каиргельдинов Ансар <kairgeldinov@example.com>
+Date:   2026-10-08 14:12:26 +0300
+
+    Финальная настройка проекта, стилизация премиального ресторана и обновление данных студента (ИС24-23б, A-COUR)
+
+ .claude/skills/deploying-to-cloud/SKILL.md         | 268 +++++++++++++++++++++
+ .../deploying-to-cloud/reference/checklists.md     |  55 +++++
+ .claude/skills/infer-conventions/SKILL.md          | 105 ++++++++
+ .../infer-conventions/references/checklist.md      | 137 +++++++++++
+ .claude/skills/laravel-best-practices/SKILL.md     |  59 +++++
+ .../rules/advanced-queries.md                      | 106 ++++++++
+ .../laravel-best-practices/rules/architecture.md   | 219 +++++++++++++++++
+ .../laravel-best-practices/rules/blade-views.md    |  36 +++
+ .../skills/laravel-best-practices/rules/caching.md | 100 ++++++++
+ .../laravel-best-practices/rules/collections.md    |  72 ++++++
+ .../skills/laravel-best-practices/rules/config.md  |  85 +++++++
+ .../laravel-best-practices/rules/db-performance.md | 189 +++++++++++++++
+ .../laravel-best-practices/rules/eloquent.md       | 158 ++++++++++++
+ .../laravel-best-practices/rules/error-handling.md |  77 ++++++
+ .../rules/events-notifications.md                  |  52 ++++
+ .../laravel-best-practices/rules/http-client.md    | 157 ++++++++++++
+ .../skills/laravel-best-practices/rules/mail.md    |  54 +++++
+ .../laravel-best-practices/rules/migrations.md     |  67 ++++++
+ .../laravel-best-practices/rules/queue-jobs.md     | 117 +++++++++
+ .../skills/laravel-best-practices/rules/routing.md | 106 ++++++++
+ .../laravel-best-practices/rules/scheduling.md     |  61 +++++
+ .../laravel-best-practices/rules/security.md       | 156 ++++++++++++
+ .../skills/laravel-best-practices/rules/style.md   | 110 +++++++++
+ .../laravel-best-practices/rules/validation.md     |  89 +++++++
+ .claude/skills/tailwindcss-development/SKILL.md    |  96 ++++++++
+ .claude/skills/testing-best-practices/SKILL.md     |  57 +++++
+ .../testing-best-practices/rules/assertions.md     |  60 +++++
+ .../testing-best-practices/rules/endpoint-tests.md |  47 ++++
+ .../rules/finding-features.md                      |  33 +++
+ .../testing-best-practices/rules/isolation.md      |  52 ++++
+ .../skills/testing-best-practices/rules/naming.md  |  37 +++
+ .../testing-best-practices/rules/performance.md    |  46 ++++
+ .../skills/testing-best-practices/rules/review.md  |  42 ++++
+ .../testing-best-practices/rules/security.md       |  27 +++
+ .../testing-best-practices/rules/test-data.md      |  68 ++++++
+ .junie/mcp/mcp.json                                |  11 +
+ .junie/skills/deploying-to-cloud/SKILL.md          | 268 +++++++++++++++++++++
+ .../deploying-to-cloud/reference/checklists.md     |  55 +++++
+ .junie/skills/infer-conventions/SKILL.md           | 105 ++++++++
+ .../infer-conventions/references/checklist.md      | 137 +++++++++++
+ .junie/skills/laravel-best-practices/SKILL.md      |  59 +++++
+ .../rules/advanced-queries.md                      | 106 ++++++++
+ .../laravel-best-practices/rules/architecture.md   | 219 +++++++++++++++++
+ .../laravel-best-practices/rules/blade-views.md    |  36 +++
+ .../skills/laravel-best-practices/rules/caching.md | 100 ++++++++
+ .../laravel-best-practices/rules/collections.md    |  72 ++++++
+ .../skills/laravel-best-practices/rules/config.md  |  85 +++++++
+ .../laravel-best-practices/rules/db-performance.md | 189 +++++++++++++++
+ .../laravel-best-practices/rules/eloquent.md       | 158 ++++++++++++
+ .../laravel-best-practices/rules/error-handling.md |  77 ++++++
+ .../rules/events-notifications.md                  |  52 ++++
+ .../laravel-best-practices/rules/http-client.md    | 157 ++++++++++++
+ .junie/skills/laravel-best-practices/rules/mail.md |  54 +++++
+ .../laravel-best-practices/rules/migrations.md     |  67 ++++++
+ .../laravel-best-practices/rules/queue-jobs.md     | 117 +++++++++
+ .../skills/laravel-best-practices/rules/routing.md | 106 ++++++++
+ .../laravel-best-practices/rules/scheduling.md     |  61 +++++
+ .../laravel-best-practices/rules/security.md       | 156 ++++++++++++
+ .../skills/laravel-best-practices/rules/style.md   | 110 +++++++++
+ .../laravel-best-practices/rules/validation.md     |  89 +++++++
+ .junie/skills/tailwindcss-development/SKILL.md     |  96 ++++++++
+ .junie/skills/testing-best-practices/SKILL.md      |  57 +++++
+ .../testing-best-practices/rules/assertions.md     |  60 +++++
+ .../testing-best-practices/rules/endpoint-tests.md |  47 ++++
+ .../rules/finding-features.md                      |  33 +++
+ .../testing-best-practices/rules/isolation.md      |  52 ++++
+ .../skills/testing-best-practices/rules/naming.md  |  37 +++
+ .../testing-best-practices/rules/performance.md    |  46 ++++
+ .../skills/testing-best-practices/rules/review.md  |  42 ++++
+ .../testing-best-practices/rules/security.md       |  27 +++
+ .../testing-best-practices/rules/test-data.md      |  68 ++++++
+ .mcp.json                                          |  11 +
+ .npmrc                                             |   2 +
+ AGENTS.md                                          | 148 ++++++++++++
+ CLAUDE.md                                          | 148 ++++++++++++
+ boost.json                                         |  18 ++
+ routes/console.php                                 |   8 +
+ storage/app/.gitignore                             |   4 +
+ storage/app/private/.gitignore                     |   2 +
+ storage/app/public/.gitignore                      |   2 +
+ storage/framework/.gitignore                       |  10 +
+ storage/framework/cache/.gitignore                 |   4 +
+ storage/framework/cache/data/.gitignore            |   2 +
+ storage/framework/cache/locks/.gitignore           |   2 +
+ storage/framework/sessions/.gitignore              |   2 +
+ storage/framework/testing/.gitignore               |   2 +
+ storage/framework/views/.gitignore                 |   2 +
+ storage/logs/.gitignore                            |   2 +
+ 88 files changed, 6780 insertions(+)
+
+commit 240fc815ec7fc6dec2a250de7d3acefd302db0ab
+Author: Каиргельдинов Ансар <kairgeldinov@example.com>
+Date:   2026-10-08 14:12:18 +0300
+
+    Создание Blade-шаблонов: общий макет layouts/app, каталог, карточка блюда, разделы, обратная связь
+
+ resources/css/app.css                     |   9 +
+ resources/js/app.js                       |   1 +
+ resources/views/catalog/index.blade.php   | 124 +++++++++++
+ resources/views/catalog/section.blade.php |  69 ++++++
+ resources/views/catalog/show.blade.php    | 110 ++++++++++
+ resources/views/feedback.blade.php        |  67 ++++++
+ resources/views/hello.blade.php           |  12 +
+ resources/views/layouts/app.blade.php     | 349 ++++++++++++++++++++++++++++++
+ resources/views/welcome.blade.php         | 223 +++++++++++++++++++
+ 9 files changed, 964 insertions(+)
+
+commit 51d63c31165253cb368aa5030392f24f8c7e85db
+Author: Каиргельдинов Ансар <kairgeldinov@example.com>
+Date:   2026-10-08 14:12:14 +0300
+
+    Реализация контроллеров CatalogController, PageController и маршрутизации routes/web.php
+
+ app/Http/Controllers/CatalogController.php | 151 +++++++++++++++++++++++++++++
+ app/Http/Controllers/Controller.php        |   8 ++
+ app/Http/Controllers/PageController.php    |  33 +++++++
+ app/Models/User.php                        |  32 ++++++
+ app/Providers/AppServiceProvider.php       |  24 +++++
+ routes/web.php                             |  45 +++++++++
+ 6 files changed, 293 insertions(+)
+
+commit 89d037fdb27acf5641946ad8fadb944c556ac0f7
+Author: Каиргельдинов Ансар <kairgeldinov@example.com>
+Date:   2026-10-08 14:12:07 +0300
+
+    Настройка конфигурации лабораторной работы: config/lab.php
+
+ config/lab.php | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+commit 06fb544a84ec16f973a7d44f05c368ac2320fa16
+Author: Каиргельдинов Ансар <kairgeldinov@example.com>
+Date:   2026-10-08 14:12:03 +0300
+
+    Инициализация проекта Laravel 12 (ЛПР №8, Вариант 9 — Ресторан)
+
+ .editorconfig                                      |   18 +
+ .env.example                                       |   71 +
+ .gitattributes                                     |   11 +
+ .gitignore                                         |   27 +
+ README.md                                          |   58 +
+ artisan                                            |   18 +
+ bootstrap/app.php                                  |   21 +
+ bootstrap/cache/.gitignore                         |    2 +
+ bootstrap/providers.php                            |    7 +
+ composer.json                                      |   87 +
+ composer.lock                                      | 8846 ++++++++++++++++++++
+ config/app.php                                     |  126 +
+ config/auth.php                                    |  117 +
+ config/cache.php                                   |  136 +
+ config/database.php                                |  184 +
+ config/filesystems.php                             |   80 +
+ config/logging.php                                 |  140 +
+ config/mail.php                                    |  118 +
+ config/queue.php                                   |  129 +
+ config/services.php                                |   38 +
+ config/session.php                                 |  233 +
+ database/.gitignore                                |    1 +
+ database/factories/UserFactory.php                 |   45 +
+ .../0001_01_01_000000_create_users_table.php       |   49 +
+ .../0001_01_01_000001_create_cache_table.php       |   35 +
+ .../0001_01_01_000002_create_jobs_table.php        |   59 +
+ database/seeders/DatabaseSeeder.php                |   25 +
+ package.json                                       |   19 +
+ phpunit.xml                                        |   36 +
+ public/.htaccess                                   |   25 +
+ public/favicon.ico                                 |    0
+ public/index.php                                   |   20 +
+ public/robots.txt                                  |    2 +
+ tests/Feature/ExampleTest.php                      |   19 +
+ tests/TestCase.php                                 |   10 +
+ tests/Unit/ExampleTest.php                         |   16 +
+ vite.config.js                                     |   24 +
+ 37 files changed, 10852 insertions(+)
