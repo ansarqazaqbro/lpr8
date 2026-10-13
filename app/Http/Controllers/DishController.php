@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DishRequest;
 use App\Models\Dish;
 use App\Models\MenuSection;
 use Illuminate\Http\Request;
@@ -42,9 +43,12 @@ class DishController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DishRequest $request)
     {
-        // Will be wired in Step 5 with DishRequest
+        $dish = Dish::create($request->validated());
+
+        return redirect()->route('dishes.index')
+            ->with('status', 'Блюдо «'.$dish->name.'» успешно создано.');
     }
 
     /**
@@ -60,9 +64,12 @@ class DishController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Dish $dish)
+    public function update(DishRequest $request, Dish $dish)
     {
-        // Will be wired in Step 5 with DishRequest
+        $dish->update($request->validated());
+
+        return redirect()->route('dishes.index')
+            ->with('status', 'Блюдо «'.$dish->name.'» успешно обновлено.');
     }
 
     /**
