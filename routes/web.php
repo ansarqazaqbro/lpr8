@@ -1,20 +1,21 @@
 <?php
 
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\DishController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes — ЛПР №8 (Вариант 9 — Ресторан)
-| Студент: Каиргельдинов Ансар, ИС-21, N=9
+| Web Routes — ЛПР №8 & ЛПР №9 (Вариант 9 — Ресторан)
+| Студент: Каиргельдинов Ансар, ИС24-23б, N=9
 |--------------------------------------------------------------------------
 */
 
 // Редирект с главной на каталог
 Route::redirect('/', '/catalog')->name('home');
 
-// ----- Каталог -----
+// ----- Каталог (ЛПР №8) -----
 Route::prefix('catalog')->name('catalog.')->group(function () {
 
     // Список с поиском и сортировкой
@@ -34,12 +35,16 @@ Route::prefix('catalog')->name('catalog.')->group(function () {
         ->whereNumber('id');
 });
 
+// ----- CRUD Управление блюдами (ЛПР №9) -----
+Route::resource('dishes', DishController::class)->except(['show']);
+
 // ----- Обратная связь -----
 Route::get('/feedback', [PageController::class, 'feedbackForm'])->name('feedback.form');
 Route::post('/feedback', [PageController::class, 'feedbackSend'])->name('feedback.send');
 
 // ----- Тестовый маршрут (поддержка кириллицы) -----
 Route::get('/hello/{name?}', function (?string $name = null) {
-    $greeting = $name ? 'Привет, ' . $name . '!' : 'Привет, мир!';
+    $greeting = $name ? 'Привет, '.$name.'!' : 'Привет, мир!';
+
     return view('hello', compact('greeting'));
 })->where('name', '[\p{L}]+')->name('hello');

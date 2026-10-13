@@ -298,6 +298,12 @@
                        href="{{ route('catalog.section') }}">Разделы</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dishes.*') ? 'active' : '' }}"
+                       href="{{ route('dishes.index') }}">
+                       <i class="bi bi-sliders me-1"></i>Управление меню (CRUD)
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('feedback.*') ? 'active' : '' }}"
                        href="{{ route('feedback.form') }}">Связь</a>
                 </li>
