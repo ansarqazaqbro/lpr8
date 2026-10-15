@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Редирект с главной на каталог
-Route::redirect('/', '/catalog')->name('home');
+// Редирект с главной на CRUD управления блюдами (ЛПР №9) или каталог
+Route::redirect('/', '/dishes')->name('home');
+
+// ----- CRUD Управление блюдами (ЛПР №9) -----
+Route::resource('dishes', DishController::class)->except(['show']);
 
 // ----- Каталог (ЛПР №8) -----
 Route::prefix('catalog')->name('catalog.')->group(function () {
-
     // Список с поиском и сортировкой
     Route::get('/', [CatalogController::class, 'index'])->name('index');
 
@@ -34,9 +36,6 @@ Route::prefix('catalog')->name('catalog.')->group(function () {
         ->name('show')
         ->whereNumber('id');
 });
-
-// ----- CRUD Управление блюдами (ЛПР №9) -----
-Route::resource('dishes', DishController::class)->except(['show']);
 
 // ----- Обратная связь -----
 Route::get('/feedback', [PageController::class, 'feedbackForm'])->name('feedback.form');
