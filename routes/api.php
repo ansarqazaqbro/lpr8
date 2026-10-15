@@ -15,3 +15,8 @@ Route::get('/ping', function () {
         'student' => config('lab.student'),
     ]);
 });
+
+// CRUD áëþä (ËÏÐ10)
+Route::name('api.')->group(function () {
+    Route::apiResource('dishes', \App\Http\Controllers\Api\DishController::class);
+});
