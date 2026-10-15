@@ -1,0 +1,17 @@
+﻿meta {
+  name: 6. Put Dish (Missing Fields Error 422)
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{base_url}}/dishes/{{item_id}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "price": 4000.00
+  }
+}

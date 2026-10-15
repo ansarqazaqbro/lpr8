@@ -1,0 +1,16 @@
+meta {
+  name: 5put
+  type: http
+  seq: 9
+}
+
+put {
+  url: http://127.0.0.1:8109/api/dishes/25
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  forwardAuthorizationHeader: false
+}

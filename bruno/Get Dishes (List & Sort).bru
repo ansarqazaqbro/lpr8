@@ -1,0 +1,22 @@
+meta {
+  name: Get Dishes (List & Sort)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/dishes?per_page=2&sort=-price
+  body: none
+  auth: inherit
+}
+
+params:query {
+  per_page: 2
+  sort: -price
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  forwardAuthorizationHeader: false
+}

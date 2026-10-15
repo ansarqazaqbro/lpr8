@@ -1,0 +1,29 @@
+meta {
+  name: Create Dish (Store)
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://127.0.0.1:8109/api/dishes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "menu_section_id": 1,
+    "name": "Блюдо из Bruno",
+    "description": "Тестовое описание",
+    "weight_g": 300,
+    "price": 2000,
+    "calories": 400,
+    "is_vegan": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  forwardAuthorizationHeader: false
+}

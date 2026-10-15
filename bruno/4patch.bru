@@ -1,0 +1,23 @@
+meta {
+  name: 4patch
+  type: http
+  seq: 8
+}
+
+patch {
+  url: http://127.0.0.1:8109/api/dishes/25
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "price": 2800.00
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  forwardAuthorizationHeader: false
+}

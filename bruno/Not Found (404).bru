@@ -1,0 +1,17 @@
+meta {
+  name: Not Found (404)
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://127.0.0.1:8109/api/dishes/25
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  forwardAuthorizationHeader: false
+}
